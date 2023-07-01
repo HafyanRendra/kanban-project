@@ -7,6 +7,16 @@ use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
+    public function edit($id)
+    {
+        $pageTitle = 'Edit Task';
+        $tasks = $this->tasks;
+
+        $task = $tasks[$id - 1];
+
+        return view('tasks.edit', ['pageTitle' => $pageTitle, 'task' => $task]);
+    }
+    
     private $tasks;
 
     public function __construct()
